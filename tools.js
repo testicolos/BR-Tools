@@ -1,6 +1,7 @@
 const BR_TOOLS = [
   {
     name: "Project Command",
+    enabled: false,
     category: "Project delivery",
     description: "Plan projects, coordinate work, and keep delivery moving.",
     favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23081522'/%3E%3Cpath d='M18 44V20h16c9 0 14 5 14 12s-5 12-14 12H18Zm10-8h6c4 0 6-1 6-4s-2-4-6-4h-6v8Z' fill='%234ee4d0'/%3E%3Cpath d='M13 13h38' stroke='%2365a6ff' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E",

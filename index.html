@@ -22,8 +22,8 @@
           <span class="brand-symbol" aria-hidden="true">BR</span>
           <span class="brand-copy"><strong>BR-Tools</strong><small>Company workspace</small></span>
         </a>
-        <div class="connection-status" aria-label="Three systems connected">
-          <span class="pulse" aria-hidden="true"></span><span>3 systems connected</span>
+        <div class="connection-status" aria-label="Two systems connected">
+          <span class="pulse" aria-hidden="true"></span><span>2 systems connected</span>
         </div>
       </header>
 
@@ -49,7 +49,7 @@
 
       <footer>
         <p>BlueRock digital workspace</p>
-        <p><span class="footer-mark" aria-hidden="true"></span> All systems ready</p>
+        <p><span class="footer-mark" aria-hidden="true"></span> 2 systems ready</p>
       </footer>
     </div>
 
@@ -58,18 +58,29 @@
       const grid = document.querySelector("#system-grid");
 
       BR_TOOLS.forEach((tool, index) => {
-        const card = document.createElement("a");
-        card.className = "system-card";
-        card.href = tool.url;
+        const isEnabled = tool.enabled !== false;
+        const card = document.createElement(isEnabled ? "a" : "article");
+        card.className = `system-card${isEnabled ? "" : " is-disabled"}`;
+        if (isEnabled) {
+          card.href = tool.url;
+          card.setAttribute("aria-label", `Open ${tool.name}`);
+        } else {
+          card.setAttribute("aria-label", `${tool.name} is temporarily unavailable`);
+          card.setAttribute("aria-disabled", "true");
+        }
         card.style.setProperty("--accent", tool.accent);
         card.style.setProperty("--glow", tool.glow);
         card.style.setProperty("--delay", `${index * 90}ms`);
-        card.setAttribute("aria-label", `Open ${tool.name}`);
         card.innerHTML = `
           <div class="card-head"><span class="card-number">0${index + 1}</span><span class="card-category">${tool.category}</span></div>
           <div class="app-icon"><img src="${tool.favicon}" alt="" /><span class="icon-fallback" hidden>${tool.fallback}</span></div>
           <div class="card-content"><h3>${tool.name}</h3><p>${tool.description}</p></div>
-          <div class="card-action" aria-hidden="true"><span>Open workspace</span><span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 7l5 5-5 5" /></svg></span></div>`;
+          <div class="card-action" aria-hidden="true">
+            <span>${isEnabled ? "Open workspace" : "Available soon"}</span>
+            ${isEnabled
+              ? `<span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 7l5 5-5 5" /></svg></span>`
+              : `<span class="status-badge">Paused</span>`}
+          </div>`;
 
         const icon = card.querySelector("img");
         const fallback = card.querySelector(".icon-fallback");
