@@ -1,0 +1,32 @@
+const BR_TOOLS = [
+  {
+    name: "Project Command",
+    category: "Project delivery",
+    description: "Plan projects, coordinate work, and keep delivery moving.",
+    favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23081522'/%3E%3Cpath d='M18 44V20h16c9 0 14 5 14 12s-5 12-14 12H18Zm10-8h6c4 0 6-1 6-4s-2-4-6-4h-6v8Z' fill='%234ee4d0'/%3E%3Cpath d='M13 13h38' stroke='%2365a6ff' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E",
+    fallback: "PC",
+    accent: "#8eff6b",
+    glow: "rgba(142, 255, 107, 0.14)",
+    url: "https://project-management-system-fsxuwks01-hbitar-projects.vercel.app/",
+  },
+  {
+    name: "BlueRock IMS",
+    category: "Management system",
+    description: "Open the integrated management system and its resources.",
+    favicon: "https://bluerock-ims.vercel.app/icons/192",
+    fallback: "IMS",
+    accent: "#45dbc4",
+    glow: "rgba(69, 219, 196, 0.14)",
+    url: "https://bluerock-ims.vercel.app/",
+  },
+  {
+    name: "BlueRock FMS",
+    category: "Facilities operations",
+    description: "Access facilities operations, requests, and service records.",
+    favicon: "https://br-fms.vercel.app/favicon.ico?favicon.3fpu2ql9ns1a0.ico",
+    fallback: "FMS",
+    accent: "#78a5ff",
+    glow: "rgba(120, 165, 255, 0.16)",
+    url: "https://br-fms.vercel.app/",
+  },
+];
